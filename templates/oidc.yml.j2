@@ -10,11 +10,11 @@ spec:
       openID:
         {% if idp.claims is defined %}
         claims:
-        {{ providers.okta.claims | to_nice_yaml | indent(10) }}
+        {{ idp.claims | to_nice_yaml | indent(10) }}
         {%- endif %}
         {% if idp.extraScopes is defined %}
         extraScopes:
-          {{ providers.okta.extraScopes | to_nice_yaml | indent(10) }}
+          {{ idp.extraScopes | to_nice_yaml | indent(10) }}
         {%- endif %}
         issuer: {{ idp.issuer }}
         clientID: {{ idp.client_id }}
