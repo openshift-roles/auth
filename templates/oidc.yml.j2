@@ -17,7 +17,7 @@ spec:
           {{ idp.extraScopes | to_nice_yaml | indent(10) }}
         {%- endif %}
         issuer: {{ idp.issuer }}
-        clientID: {{ idp.client_id }}
+        clientID: {{ client_id }}
         clientSecret:
           name: {{ secret_name }}
       type: OpenID
