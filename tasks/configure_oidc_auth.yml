@@ -5,7 +5,7 @@
   
 - name: store the client secret in kubernetes secret
   kubernetes.core.k8s:
-    api_key: "{{ api_key }}"
+    api_key: "{{ api_token }}"
     state: present
     definition:
       apiVersion: v1
@@ -19,7 +19,7 @@
 
 - name: get identity providers
   kubernetes.core.k8s_info:
-    api_key: "{{ api_key }}"
+    api_key: "{{ api_token }}"
     kind: OAuth
     api_version: config.openshift.io/v1
     wait: yes
@@ -31,14 +31,14 @@
   block:
     - name: configure oidc auth
       kubernetes.core.k8s:
-        api_key: "{{ api_key }}"
+        api_key: "{{ api_token }}"
         state: present
         apply: true
         resource_definition: "{{ lookup('template', 'templates/oidc.yml.j2') | from_yaml }}"
     
     - name: assign cluster admin to specified group claim
       kubernetes.core.k8s:
-        api_key: "{{ api_key }}"
+        api_key: "{{ api_token }}"
         state: present
         apply: true
         definition:
@@ -57,7 +57,7 @@
 
     - name: delete default kubeadmin user
       kubernetes.core.k8s:
-        api_key: "{{ api_key }}"
+        api_key: "{{ api_token }}"
         state: absent
         apply: false
         definition:
