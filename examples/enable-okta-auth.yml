@@ -23,4 +23,4 @@
     delete_default_kubeadmin_user: true
 
   roles:
-  - openshift-roles.auth
+  - auth
