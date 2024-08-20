@@ -6,7 +6,7 @@
 
 - name: configure OIDC auth
   ansible.builtin.import_tasks: configure_oidc_auth.yml
-  when: idp.type | default("OpenID")
+  when: idp.type == "OpenID"
 
 #- name: configure HTPasswd auth
 #  ansible.builtin.import_tasks: configure_htpasswd_auth.yml

@@ -1,7 +1,7 @@
 ---
 - name: generate a secret name to store client secret from identity provider
   ansible.builtin.set_fact:
-    secret_name: "{{ provider_name }}-clientsecret" 
+    secret_name: "{{ idp.name }}-clientsecret" 
   
 - name: store the client secret in kubernetes secret
   kubernetes.core.k8s:
