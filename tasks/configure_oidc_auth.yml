@@ -15,7 +15,7 @@
         namespace: openshift-config
       type: Opaque
       data:
-        clientSecret: {{ client_secret | base64_encode }}
+        clientSecret: "{{ client_secret | base64_encode }}"
 
 - name: get identity providers
   kubernetes.core.k8s_info:
@@ -67,5 +67,5 @@
             name: kubeadmin 
             namespace: kube-system
       when: delete_default_kubeadmin_user | default(true)
-      
+
   when: "{{ get_oauth_resource.api_found and get_oauth_resource.resources[0].spec.identityProviders | selectattr('name', 'equalto', idp.name) | list | length == 0 }}"
