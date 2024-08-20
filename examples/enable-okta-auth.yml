@@ -1,0 +1,28 @@
+---
+- name: Enable http and https service in default zone
+  hosts: "localhost"
+  gather_facts: no
+  vars:
+    idp:
+    type: OpenID
+    name: okta
+    claims:
+      email:
+      - email
+      name:
+      - name
+      preferredUsername:
+      - preferred_username
+      groups:
+      - groups
+    extraScopes:
+    - email
+    - profile
+    - groups
+    issuer: https://dev-6782679.okta.com
+
+    cluster_admin_claim: "cluster-admins"
+    delete_default_kubeadmin_user: true
+
+  roles:
+  - openshift-roles.auth
