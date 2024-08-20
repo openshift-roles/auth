@@ -1,2 +1,4 @@
 ---
 # collection requirements for this role
+collections:
+- name: kubernetes.core 
