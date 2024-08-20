@@ -1,5 +1,8 @@
 ---
 # tasks file for auth
+- name: debug
+  debug:
+    msg: "In role"
 - name: load vars from ansible vault
   include_vars:
     file: "./vars/secrets.yml"
