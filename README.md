@@ -1,4 +1,4 @@
-Role Name
+Auth
 =========
 
 Ansible role to manage authentication in Openshift
@@ -26,6 +26,16 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: servers
       roles:
          - { role: username.rolename, x: 42 }
+
+Installation
+--------------
+This role can be installed directly from github or from ansible galaxy
+
+Install from github by running command below
+
+```sh
+ansible-galaxy role install git+https://github.com/openshift-roles/auth.git
+```
 
 License
 -------
