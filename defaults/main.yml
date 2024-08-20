@@ -1,0 +1,19 @@
+---
+# defaults file for auth
+idp:
+  type: OpenID
+  name: okta
+  claims:
+    email:
+    - email
+    name:
+    - name
+    preferredUsername:
+    - preferred_username
+    groups:
+    - groups
+  extraScopes:
+  - email
+  - profile
+  - groups
+  issuer: https://dev-6782679.okta.com
